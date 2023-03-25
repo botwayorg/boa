@@ -1,4 +1,4 @@
-module github.com/elewis787/boa
+module github.com/botwayorg/boa
 
 go 1.20
 
