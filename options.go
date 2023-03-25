@@ -39,6 +39,7 @@ func WithAltScreen(b bool) Options {
 			opt.altScreen = noOpt
 			return
 		}
+
 		opt.altScreen = tea.WithAltScreen()
 	})
 }

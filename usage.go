@@ -15,9 +15,11 @@ var defaultOpts = defaultOptions()
 // Set by calling Cobra's SetHelpFunc
 func HelpFunc(cmd *cobra.Command, s []string) {
 	model := newCmdModel(defaultOpts, cmd)
+
 	if err := tea.NewProgram(model, defaultOpts.altScreen, defaultOpts.mouseCellMotion).Start(); err != nil {
 		log.Fatal(err)
 	}
+
 	if model.print {
 		fmt.Println(model.cmdChain)
 	}
@@ -27,11 +29,14 @@ func HelpFunc(cmd *cobra.Command, s []string) {
 // Set by calling Cobra's SetUsageFunc
 func UsageFunc(cmd *cobra.Command) error {
 	model := newCmdModel(defaultOpts, cmd)
+
 	if err := tea.NewProgram(model, defaultOpts.altScreen, defaultOpts.mouseCellMotion).Start(); err != nil {
 		return err
 	}
+
 	if model.print {
 		fmt.Println(model.cmdChain)
 	}
+
 	return nil
 }
