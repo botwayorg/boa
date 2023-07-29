@@ -41,8 +41,8 @@ func (d itemDelegate) Render(w io.Writer, m list.Model, index int, listItem list
 	fn := d.styles.Item.Render
 
 	if index == m.Index() {
-		fn = func(s ...string) string {
-			return d.styles.SelectedItem.Render("> " + fmt.Sprint(s))
+		fn = func(strs ...string) string {
+			return d.styles.SelectedItem.Render("> " + fmt.Sprint(strs))
 		}
 	}
 
